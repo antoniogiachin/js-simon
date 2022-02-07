@@ -39,3 +39,9 @@ main ul {
     border: 5px solid black;
     padding: 100px;
 }
+
+
+/* visibilita' */
+.d-none{
+    display: none;
+}

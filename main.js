@@ -62,13 +62,20 @@ function randomSimon(container, difficulty, min, max){
         document.getElementById('timer').innerHTML = seconds;
 
         // Si ferma allo 0
-        if (seconds === 0){
-
-            // Invoca funzione di verifica
-            verify(container,numbers);
+         if (seconds === 0){
 
             // Fermo contatore
             clearInterval(clock);
+            container.classList.add('d-none');
+            
+            // Aggiungo ulteriore contatore per far eseguire il codice
+            setTimeout(function(){
+                // Invoca funzione di verifica
+                verify(container,numbers);
+
+            }, 550);
+
+            
 
         } else{
 
@@ -76,9 +83,6 @@ function randomSimon(container, difficulty, min, max){
             seconds--;
 
         }
-
-
-
 
         
     }, 1000);
@@ -107,15 +111,23 @@ function verify(container, array){
 
     let list = document.createElement('ul');
 
+    let recap =[];
+
     //Confronto i 2 array
     for(let i =0; i < array.length; i++){
 
         if(array.includes(usrNumbers[i])){
             list.innerHTML += `<li> ${usrNumbers[i]}</li>`;
+            recap.push(usrNumbers[i]);
+
         }
 
 
     }
 
-    container.append(list);
+    const recapString = `<p>HAI INDOVINATO ${recap.length} NUMERI!</p>`
+    container.innerHTML = '';
+    container.innerHTML = recapString;
+    container.appendChild(list);
+    container.classList.remove('d-none');
 }
