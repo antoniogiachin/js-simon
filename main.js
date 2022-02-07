@@ -4,9 +4,11 @@ let container = document.getElementById('game-numbers');
 
 // Invoco la funzione per creazione numeri
 
-
 randomSimon(container, 5, 0, 100);
 
+
+
+/* ------ FUNZIONI ----- */
 
 // Creo funzione per generazione lista random di numeri
 // container e' il contenitore cui riferirsi per iniettare lista, difficulty e' quanti numeri inserire, min e max sono gli intervalli possibili per i numeri casuali
@@ -39,7 +41,7 @@ function randomSimon(container, difficulty, min, max){
         
         list.innerHTML+=`
         
-        <li>${value}</li>
+            <li>${value}</li>
         
         `;
         
@@ -48,4 +50,72 @@ function randomSimon(container, difficulty, min, max){
     container.appendChild(list);
     console.log(list)
 
+    //Imposto verifica
+    // Variabile con secondi
+    let seconds = 30;
+
+    
+    let clock = setInterval(function(){
+
+
+        // Mi riferisco allo span secondi
+        document.getElementById('timer').innerHTML = seconds;
+
+        // Si ferma allo 0
+        if (seconds === 0){
+
+            // Invoca funzione di verifica
+            verify(container,numbers);
+
+            // Fermo contatore
+            clearInterval(clock);
+
+        } else{
+
+            //Diminuiscono i secondi
+            seconds--;
+
+        }
+
+
+
+
+        
+    }, 1000);
+    
+
+}
+
+
+
+// Funzione di verifica gioco
+
+function verify(container, array){
+
+    // Creo un array con le risposte dell'utente
+    const usrNumbers = [];
+
+    for(let i =0; i < array.length; i++) {
+        
+        let number = parseInt(prompt('Inserisci un numero'));
+
+        usrNumbers.push(number);
+
+    };
+
+    console.log(usrNumbers);
+
+    let list = document.createElement('ul');
+
+    //Confronto i 2 array
+    for(let i =0; i < array.length; i++){
+
+        if(array.includes(usrNumbers[i])){
+            list.innerHTML += `<li> ${usrNumbers[i]}</li>`;
+        }
+
+
+    }
+
+    container.append(list);
 }
