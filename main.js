@@ -4,21 +4,24 @@ let container = document.getElementById('game-numbers');
 
 // Invoco la funzione per creazione numeri
 
-randomSimon(container, 0, 100)
+
+randomSimon(container, 5, 0, 100);
 
 
 // Creo funzione per generazione lista random di numeri
+// container e' il contenitore cui riferirsi per iniettare lista, difficulty e' quanti numeri inserire, min e max sono gli intervalli possibili per i numeri casuali
 
-function randomSimon(container, min, max){
+function randomSimon(container, difficulty, min, max){
 
     // funzione numero random
     function randomNumber(min, max){
         return Math.floor(Math.random() * (max - min+1)+min);
     }
     
+    // Array di 5 numeri random
     const numbers = [];
     
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < difficulty; i++){
     
         let number = randomNumber(min,max);
     
@@ -28,6 +31,7 @@ function randomSimon(container, min, max){
     
     console.log(numbers);
     
+    // Creo tag lista non ordinata
     let list = document.createElement('ul');
     
     
@@ -43,6 +47,5 @@ function randomSimon(container, min, max){
     
     container.appendChild(list);
     console.log(list)
-
 
 }

@@ -32,6 +32,7 @@ main #game-numbers{
 main ul {
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 70px;
     font-size: 3rem;
