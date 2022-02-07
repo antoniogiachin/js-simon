@@ -11,8 +11,14 @@ main{
     height: 100vh;
     background-color: blueviolet;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+main p{
+    margin-bottom: 20px;
+    font-size: 2.5rem;
 }
 
 main #game-numbers{
@@ -21,10 +27,6 @@ main #game-numbers{
 
 }
 
-main #game-numbers p{
-    margin-bottom: 20px;
-    font-size: 2.5rem;
-}
 
 
 main ul {
