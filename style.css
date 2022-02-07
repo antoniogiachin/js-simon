@@ -1,0 +1,38 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* main */
+main{
+    width: 100vw;
+    height: 100vh;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main #game-numbers{
+
+    text-align: center;
+
+}
+
+main #game-numbers p{
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+
+main ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    font-size: 3rem;
+    border: 5px solid black;
+    padding: 100px;
+}
