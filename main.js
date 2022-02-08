@@ -23,13 +23,16 @@ function randomSimon(container, difficulty, min, max){
     // Array di 5 numeri random
     const numbers = [];
     
-    for(let i = 0; i < difficulty; i++){
+    while(numbers.length< difficulty){
     
         let number = randomNumber(min,max);
-    
-        numbers.push(number);
+        if(!numbers.includes(numbers)){
+            numbers.push(number);
+        }
     
     }
+
+    
     
     console.log(numbers);
     
