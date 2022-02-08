@@ -99,11 +99,15 @@ function verify(container, array){
     // Creo un array con le risposte dell'utente
     const usrNumbers = [];
 
-    for(let i =0; i < array.length; i++) {
+    while(usrNumbers.length < array.length) {
         
         let number = parseInt(prompt('Inserisci un numero'));
 
-        usrNumbers.push(number);
+        if(!usrNumbers.includes(number) && !isNaN(number)){
+            usrNumbers.push(number);
+        } else{
+            alert('Inserisci un numero valido')
+        }
 
     };
 
@@ -121,7 +125,6 @@ function verify(container, array){
             recap.push(usrNumbers[i]);
 
         }
-
 
     }
 
